@@ -1,11 +1,15 @@
 package com.saurabh
 
+import com.github.mustachejava.DefaultMustacheFactory
 import com.saurabh.model.dao.UserDatabase
+import com.saurabh.routes.delete
 import com.saurabh.routes.home
+import com.saurabh.routes.user
 import io.ktor.application.*
 import io.ktor.routing.*
 import freemarker.cache.*
 import io.ktor.freemarker.*
+import io.ktor.mustache.Mustache
 import org.jetbrains.exposed.sql.Database
 
 //Instantiate UserDatabase by passing H2 in-memory database instance
@@ -26,6 +30,8 @@ fun Application.module(testing: Boolean = false) {
 
     routing {
         home()
+        user()
+        delete()
     }
 }
 
